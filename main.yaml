@@ -1,9 +1,9 @@
 #!/bin/bash
 
 - name: "configuring {{ component }}"
-  hosts: "{{ component }}"
-  #hosts: localhost
-  #connection: local
+  #hosts: "{{ component }}"
+  hosts: localhost
+  connection: local
   become: yes
   roles:
   - "{{ component }}" 
