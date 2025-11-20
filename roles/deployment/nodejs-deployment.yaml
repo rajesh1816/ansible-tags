@@ -1,0 +1,21 @@
+#!/bin/bash
+
+- name: "stop the {{ component }}service"
+  ansible.builtin.service:
+    name: "{{ component }}"
+    state: stopped
+
+- name: remove /app directory
+  ansible.builtin.file:
+    path: /app
+    state: absent
+
+- name: create /app directory
+  ansible.builtin.file:
+    path: /app
+    state: directory
+
+- name: download the application
+  ansible.builtin.unarchive:
+    src: "https://roboshop-backend-src.s3.us-east-1.amazonaws.com/{{ component }}-v{{ APP_VERSION }}.zip"
+
