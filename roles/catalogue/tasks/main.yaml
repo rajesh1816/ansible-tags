@@ -42,5 +42,5 @@
   tags:
   - import
   import_role:
-    name: deployment
+    name: common
     tasks_from: nodejs_deployment

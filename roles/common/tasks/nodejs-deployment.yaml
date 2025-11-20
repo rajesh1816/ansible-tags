@@ -17,5 +17,17 @@
 
 - name: download the application
   ansible.builtin.unarchive:
-    src: "https://roboshop-backend-src.s3.us-east-1.amazonaws.com/{{ component }}-v{{ APP_VERSION }}.zip"
+    src: "https://roboshop-backend-src.s3.us-east-1.amazonaws.com/{{ component }}-v{{ app_version }}.zip"
+    dest: /app
+    remote_src: yes
 
+- name: install dependencies
+  community.general.npm:
+    path: /app
+
+- name: restart service
+  ansible.builtin.service:
+    name: "{{ component }}"
+    state: restarted
+
+    
