@@ -43,4 +43,4 @@
   - import
   import_role:
     name: common
-    tasks_from: nodejs_deployment
+    tasks_from: nodejs-deployment
