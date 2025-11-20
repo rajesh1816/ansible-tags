@@ -2,7 +2,7 @@
 
 - name: "configuring {{ component }}"
   #hosts: "{{ component }}"
-  hosts: localhost
+  hosts: local
   connection: local
   become: yes
   roles:
