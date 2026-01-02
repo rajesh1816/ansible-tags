@@ -1,1 +1,2 @@
 MYSQL_ROOT_PASSWORD: "{{ lookup('amazon.aws.aws_ssm', '/roboshop/mysql/mysql_root_password', region='us-east-1', decrypt=True) }}"
+# for ansible to connect aws system manager param store need python libraries boto3 and botocore beacuse ansible developed in python
